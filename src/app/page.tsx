@@ -1,18 +1,18 @@
-// This is a server component compatible with Next.js
 import Image from "next/image";
 
-export default function StreamingPlatform() {
+export default function NithyanandaTV() {
   return (
-    <div className="min-h-screen bg-gray-900 text-white">
+    <div className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-800 text-white">
       {/* Header */}
-      <header className="sticky top-0 z-50 bg-gray-900/95 backdrop-blur-md px-4 py-3 flex items-center justify-between">
+      <header className="sticky top-0 z-50 bg-gray-900/95 backdrop-blur-md shadow-md px-4 py-3 flex items-center justify-between">
         <div className="flex items-center text-xl font-bold">
-          <span className="text-red-600 mr-2">
+          <span className="text-orange-500 mr-2">
             <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+              <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16z"></path>
+              <path d="M12 6a1 1 0 0 0-1 1v5a1 1 0 0 0 .4.8l3 2.5a1 1 0 0 0 1.3-1.5L13 12.2V7a1 1 0 0 0-1-1z"></path>
             </svg>
           </span>
-          MovieStream
+          Nithyananda TV
         </div>
         
         <div className="hidden md:flex relative flex-1 max-w-md mx-4">
@@ -24,7 +24,7 @@ export default function StreamingPlatform() {
           </div>
           <input 
             type="text" 
-            placeholder="Search for movies, shows, etc." 
+            placeholder="Search for discourses, meditations, etc." 
             className="w-full py-2 pl-10 pr-4 rounded-full bg-gray-800 border-gray-700 border"
           />
         </div>
@@ -47,190 +47,249 @@ export default function StreamingPlatform() {
         </div>
       </header>
 
-      {/* Hero Section */}
-      <section className="relative h-96">
-        <Image src="/api/placeholder/1600/900" alt="Featured Movie" width={1600} height={900} className="w-full h-full object-cover opacity-60" />
-        <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/70 to-transparent"></div>
-        <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-          <h1 className="text-4xl font-bold mb-2">Rampage</h1>
-          <p className="text-sm text-gray-300 mb-4 max-w-lg">Primatologist Davis Okoye shares an unshakable bond with George, an extraordinarily intelligent gorilla who has been in his care since birth.</p>
-          <div className="flex space-x-3">
-            <button className="flex items-center bg-red-600 hover:bg-red-700 text-white rounded-md px-6 py-2 text-sm font-medium">
-              <svg viewBox="0 0 24 24" width="16" height="16" className="mr-2" stroke="currentColor" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <polygon points="5 3 19 12 5 21 5 3"></polygon>
-              </svg>
-              Play
-            </button>
-            <button className="flex items-center bg-gray-800 hover:bg-gray-700 text-white rounded-md px-4 py-2 text-sm font-medium">
-              <svg viewBox="0 0 24 24" width="16" height="16" className="mr-2" stroke="currentColor" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <circle cx="12" cy="12" r="10"></circle>
-                <line x1="12" y1="16" x2="12" y2="12"></line>
-                <line x1="12" y1="8" x2="12.01" y2="8"></line>
-              </svg>
-              More Info
-            </button>
-          </div>
-        </div>
-      </section>
-
-      {/* Navigation */}
-      <nav className="px-4 py-3">
-        <div className="flex justify-between items-center mb-4">
-          <h2 className="text-lg font-bold">Trending Now</h2>
-          <button className="bg-red-600 text-white text-xs px-4 py-1 rounded-md">View All</button>
-        </div>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
-          {/* Movie Cards */}
-          {[1, 2, 3, 4, 5, 6].map((index) => (
-            <div key={index} className="rounded-lg overflow-hidden bg-gray-800 shadow-md hover:shadow-lg transition-transform hover:-translate-y-1 cursor-pointer">
-              <div className="relative">
-                <Image src={`/api/placeholder/300/${450 + index}`} alt={`Movie ${index}`} width={300} height={450} className="w-full aspect-[2/3] object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center">
-                  <button className="bg-red-600 hover:bg-red-700 text-white rounded-full w-10 h-10 flex items-center justify-center">
-                    <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                    </svg>
-                  </button>
-                </div>
-                <div className="absolute top-2 right-2 bg-black/50 text-yellow-500 text-xs p-1 rounded flex items-center">
-                  <svg viewBox="0 0 24 24" width="12" height="12" className="mr-1" stroke="currentColor" fill="currentColor" strokeWidth="2">
-                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-                  </svg>
-                  {(7.5 + index / 10).toFixed(1)}
-                </div>
-              </div>
-              <div className="p-2">
-                <h3 className="font-medium text-sm truncate">Movie Title {index}</h3>
-                <p className="text-xs text-gray-400">2023</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </nav>
-
-      {/* Movies Section */}
-      <section className="px-4 py-3">
-        <div className="flex justify-between items-center mb-4">
-          <h2 className="text-lg font-bold">Movies</h2>
-          <a href="#" className="text-red-600 text-sm flex items-center">
-            See all 
-            <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <polyline points="9 18 15 12 9 6"></polyline>
-            </svg>
-          </a>
-        </div>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-6 gap-3">
-          {[1, 2, 3, 4, 5, 6].map((index) => (
-            <div key={index} className="rounded-lg overflow-hidden bg-gray-800 shadow-md hover:shadow-lg transition-transform hover:-translate-y-1 cursor-pointer">
-              <div className="relative">
-                <Image src={`/api/placeholder/${200 + index * 10}/${300 + index * 10}`} alt={`Movie ${index}`} width={200 + index * 10} height={300 + index * 10} className="w-full aspect-[2/3] object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center">
-                  <button className="bg-red-600 hover:bg-red-700 text-white rounded-full w-10 h-10 flex items-center justify-center">
-                    <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                    </svg>
-                  </button>
-                </div>
-                <div className="absolute top-2 right-2 bg-black/50 text-yellow-500 text-xs p-1 rounded flex items-center">
-                  <svg viewBox="0 0 24 24" width="12" height="12" className="mr-1" stroke="currentColor" fill="currentColor" strokeWidth="2">
-                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-                  </svg>
-                  {(7.0 + index / 10).toFixed(1)}
-                </div>
-              </div>
-              <div className="p-2">
-                <h3 className="font-medium text-sm truncate">Movie Title {index}</h3>
-                <p className="text-xs text-gray-400">2023</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Video Player Preview */}
-      <section className="px-4 py-6">
-        <div className="rounded-lg overflow-hidden shadow-lg">
-          <div className="w-full aspect-video bg-gray-900 relative">
-            <Image src="/api/placeholder/1200/675" alt="Video Preview" width={1200} height={675} className="w-full h-full object-cover opacity-70" />
-            <div className="absolute inset-0 flex items-center justify-center">
-              <button className="bg-red-600 hover:bg-red-700 text-white rounded-full w-16 h-16 flex items-center justify-center">
-                <svg viewBox="0 0 24 24" width="32" height="32" stroke="currentColor" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      {/* Hero Section - Slider */}
+      <section className="mb-8 relative h-96">
+        <div className="relative w-full h-full">
+          <Image src="/api/placeholder/1200/500" alt="Featured Content" width={1200} height={500} className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+          <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+            <h2 className="text-3xl font-bold mb-2">Manifesting Powers</h2>
+            <p className="text-sm md:text-base mb-3 max-w-2xl">Explore ancient yogic techniques and spiritual practices to awaken the divine powers (shaktis) within you through Paramashiva's sacred knowledge.</p>
+            <div className="flex space-x-3">
+              <button className="flex items-center bg-orange-500 hover:bg-orange-600 text-white rounded-full px-4 py-2 text-sm font-medium">
+                <svg viewBox="0 0 24 24" width="16" height="16" className="mr-2" stroke="currentColor" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <polygon points="5 3 19 12 5 21 5 3"></polygon>
                 </svg>
+                Watch
               </button>
-            </div>
-            <div className="absolute top-3 right-3 flex space-x-2">
-              <button className="bg-gray-800/70 hover:bg-gray-700/70 text-white rounded-full w-8 h-8 flex items-center justify-center">
-                <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
-                </svg>
-              </button>
-              <button className="bg-gray-800/70 hover:bg-gray-700/70 text-white rounded-full w-8 h-8 flex items-center justify-center">
-                <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <button className="flex items-center bg-white/20 hover:bg-white/30 backdrop-blur text-white rounded-full px-4 py-2 text-sm font-medium">
+                <svg viewBox="0 0 24 24" width="16" height="16" className="mr-2" stroke="currentColor" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <circle cx="12" cy="12" r="10"></circle>
-                  <polyline points="12 6 12 12 16 14"></polyline>
+                  <line x1="12" y1="16" x2="12" y2="12"></line>
+                  <line x1="12" y1="8" x2="12.01" y2="8"></line>
                 </svg>
+                Details
               </button>
             </div>
-            <div className="absolute bottom-0 left-0 right-0 h-1 bg-gray-700">
-              <div className="w-1/3 h-full bg-red-600"></div>
-            </div>
           </div>
-          <div className="bg-gray-800 p-3">
-            <h3 className="font-medium">Jurassic World: Fallen Kingdom</h3>
-            <p className="text-sm text-gray-400">2023 • Action, Adventure, Sci-Fi</p>
+
+          {/* Slider pagination */}
+          <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+            {[1, 2, 3, 4].map((i) => (
+              <button key={i} className={`h-2 rounded-full ${i === 1 ? 'w-8 bg-orange-500' : 'w-2 bg-gray-400'}`}></button>
+            ))}
           </div>
+
+          {/* Slider arrows */}
+          <button className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black/50 text-white p-2 rounded-full">
+            <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+          </button>
+          <button className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black/50 text-white p-2 rounded-full">
+            <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </button>
         </div>
       </section>
 
-      {/* Popular Section */}
-      <section className="px-4 py-3">
+      {/* Filter Buttons */}
+      <section className="px-4 mb-8">
+        <div className="flex space-x-3 overflow-x-auto pb-2">
+          <button className="px-6 py-2 bg-orange-500 text-white rounded-full whitespace-nowrap">New Releases</button>
+          <button className="px-6 py-2 bg-gray-800 hover:bg-gray-700 text-white rounded-full whitespace-nowrap">Top Trending</button>
+          <button className="px-6 py-2 bg-gray-800 hover:bg-gray-700 text-white rounded-full whitespace-nowrap">Your Favorites</button>
+        </div>
+      </section>
+
+      {/* Topics */}
+      <section className="px-4 mb-8">
+        <div className="flex space-x-4 overflow-x-auto pb-2">
+          {['Discourses', 'Satsangs', 'Meditations', 'Yoga', 'Devotion', 'Mantras', 'Healing', 'Events'].map((topic, index) => (
+            <div key={index} className={`px-4 py-2 rounded-full ${index === 0 ? 'bg-orange-500 text-white' : 'bg-gray-800 hover:bg-gray-700 text-white'} whitespace-nowrap cursor-pointer`}>
+              {topic}
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Vertical Rectangle OTT Suggestions - 2 Rows */}
+      <section className="px-4 mb-8">
         <div className="flex justify-between items-center mb-4">
-          <h2 className="text-lg font-bold">Popular on MovieStream</h2>
-          <a href="#" className="text-red-600 text-sm flex items-center">
+          <h2 className="text-lg md:text-xl font-bold">Featured Content</h2>
+          <a href="#" className="text-orange-500 text-sm flex items-center">
             See all 
             <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <polyline points="9 18 15 12 9 6"></polyline>
             </svg>
           </a>
         </div>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-6 gap-3">
-          {[1, 2, 3, 4, 5, 6].map((index) => (
-            <div key={index} className="rounded-lg overflow-hidden bg-gray-800 shadow-md hover:shadow-lg transition-transform hover:-translate-y-1 cursor-pointer">
+        
+        {/* First row */}
+        <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 md:gap-4 mb-4">
+          {[1, 2, 3, 4, 5, 6].map((item) => (
+            <div key={item} className="rounded-lg overflow-hidden bg-gray-800 shadow-md hover:shadow-lg transition-transform hover:-translate-y-1 cursor-pointer">
               <div className="relative">
-                <Image src={`/api/placeholder/${200 + index * 15}/${300 + index * 15}`} alt={`Movie ${index}`} width={200 + index * 15} height={300 + index * 15} className="w-full aspect-[2/3] object-cover" />
+                <Image src={`/api/placeholder/300/${450 + item}`} alt="Content" width={300} height={450 + item} className="w-full aspect-[2/3] object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center">
-                  <button className="bg-red-600 hover:bg-red-700 text-white rounded-full w-10 h-10 flex items-center justify-center">
+                  <button className="bg-orange-500 hover:bg-orange-600 text-white rounded-full w-10 h-10 flex items-center justify-center">
                     <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <polygon points="5 3 19 12 5 21 5 3"></polygon>
                     </svg>
                   </button>
                 </div>
-                <div className="absolute top-2 right-2 bg-black/50 text-yellow-500 text-xs p-1 rounded flex items-center">
-                  <svg viewBox="0 0 24 24" width="12" height="12" className="mr-1" stroke="currentColor" fill="currentColor" strokeWidth="2">
-                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-                  </svg>
-                  {(7.8 + index / 10).toFixed(1)}
-                </div>
               </div>
               <div className="p-2">
-                <h3 className="font-medium text-sm truncate">Movie Title {index}</h3>
-                <p className="text-xs text-gray-400">2023</p>
+                <h3 className="font-medium text-sm truncate">Yogic Powers {item}</h3>
+                <p className="text-xs text-gray-400">Spiritual • 2023</p>
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Second row */}
+        <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 md:gap-4">
+          {[1, 2, 3, 4, 5, 6].map((item) => (
+            <div key={item} className="rounded-lg overflow-hidden bg-gray-800 shadow-md hover:shadow-lg transition-transform hover:-translate-y-1 cursor-pointer">
+              <div className="relative">
+                <Image src={`/api/placeholder/300/${450 + item * 2}`} alt="Content" width={300} height={450 + item * 2} className="w-full aspect-[2/3] object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center">
+                  <button className="bg-orange-500 hover:bg-orange-600 text-white rounded-full w-10 h-10 flex items-center justify-center">
+                    <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <div className="p-2">
+                <h3 className="font-medium text-sm truncate">Kundalini Yoga {item}</h3>
+                <p className="text-xs text-gray-400">Session {item} • {item * 10}m</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Live Streams - Horizontal Rectangles */}
+      <section className="px-4 mb-8">
+        <div className="flex justify-between items-center mb-4">
+          <h2 className="text-lg md:text-xl font-bold">Live Now</h2>
+          <a href="#" className="text-orange-500 text-sm flex items-center">
+            See all 
+            <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </a>
+        </div>
+
+        {/* Grid of horizontal cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {[1, 2, 3, 4, 5, 6].map((item) => (
+            <div key={item} className="rounded-lg overflow-hidden bg-gray-800 shadow-md hover:shadow-lg transition-transform hover:-translate-y-1 cursor-pointer">
+              <div className="relative">
+                <Image src={`/api/placeholder/${400 + item}/${225 + item}`} alt="Live Stream" width={400 + item} height={225 + item} className="w-full aspect-video object-cover" />
+                <div className="absolute top-2 left-2 bg-red-600 text-white text-xs px-2 py-1 rounded-full flex items-center">
+                  <span className="inline-block w-2 h-2 rounded-full bg-white mr-1"></span>
+                  LIVE
+                </div>
+                <div className="absolute bottom-2 right-2 bg-black/50 text-white text-xs px-2 py-1 rounded-full">
+                  {item * 100 + 50} viewers
+                </div>
+              </div>
+              <div className="p-3">
+                <h3 className="font-medium">Morning Discourse {item}</h3>
+                <p className="text-xs text-gray-400 mt-1">with Swamiji • Started {item} hour{item !== 1 ? 's' : ''} ago</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Playlists - Scrollable Rows */}
+      <section className="px-4 mb-8">
+        {/* First Playlist */}
+        <div className="mb-6">
+          <div className="flex justify-between items-center mb-4">
+            <h2 className="text-lg md:text-xl font-bold">Meditation Techniques</h2>
+            <a href="#" className="text-orange-500 text-sm flex items-center">
+              See all 
+              <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </a>
+          </div>
+          <div className="flex space-x-4 overflow-x-auto pb-4">
+            {[1, 2, 3, 4, 5, 6, 7, 8].map((item) => (
+              <div key={item} className="min-w-[180px] rounded-lg overflow-hidden bg-gray-800 shadow-md hover:shadow-lg transition-transform hover:-translate-y-1 cursor-pointer flex-shrink-0">
+                <div className="relative">
+                  <Image src={`/api/placeholder/180/${250 + item}`} alt="Playlist Item" width={180} height={250 + item} className="w-full aspect-[2/3] object-cover" />
+                </div>
+                <div className="p-2">
+                  <h3 className="font-medium text-sm truncate">Meditation {item}</h3>
+                  <p className="text-xs text-gray-400">{item * 5 + 10} min</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Second Playlist */}
+        <div className="mb-6">
+          <div className="flex justify-between items-center mb-4">
+            <h2 className="text-lg md:text-xl font-bold">Sacred Teachings</h2>
+            <a href="#" className="text-orange-500 text-sm flex items-center">
+              See all 
+              <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </a>
+          </div>
+          <div className="flex space-x-4 overflow-x-auto pb-4">
+            {[1, 2, 3, 4, 5, 6, 7, 8].map((item) => (
+              <div key={item} className="min-w-[180px] rounded-lg overflow-hidden bg-gray-800 shadow-md hover:shadow-lg transition-transform hover:-translate-y-1 cursor-pointer flex-shrink-0">
+                <div className="relative">
+                  <Image src={`/api/placeholder/180/${250 + item * 2}`} alt="Playlist Item" width={180} height={250 + item * 2} className="w-full aspect-[2/3] object-cover" />
+                </div>
+                <div className="p-2">
+                  <h3 className="font-medium text-sm truncate">Teaching {item}</h3>
+                  <p className="text-xs text-gray-400">{item * 10 + 15} min</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Third Playlist */}
+        <div>
+          <div className="flex justify-between items-center mb-4">
+            <h2 className="text-lg md:text-xl font-bold">Yoga Series</h2>
+            <a href="#" className="text-orange-500 text-sm flex items-center">
+              See all 
+              <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </a>
+          </div>
+          <div className="flex space-x-4 overflow-x-auto pb-4">
+            {[1, 2, 3, 4, 5, 6, 7, 8].map((item) => (
+              <div key={item} className="min-w-[180px] rounded-lg overflow-hidden bg-gray-800 shadow-md hover:shadow-lg transition-transform hover:-translate-y-1 cursor-pointer flex-shrink-0">
+                <div className="relative">
+                  <Image src={`/api/placeholder/180/${250 + item * 3}`} alt="Playlist Item" width={180} height={250 + item * 3} className="w-full aspect-[2/3] object-cover" />
+                </div>
+                <div className="p-2">
+                  <h3 className="font-medium text-sm truncate">Yoga Series {item}</h3>
+                  <p className="text-xs text-gray-400">{item} episodes</p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 border-gray-800 border-t py-6 px-4 text-center mt-8">
-        <div className="flex justify-center flex-wrap mb-4">
-          <a href="#" className="mx-3 text-sm text-gray-400 hover:text-red-600">About</a>
-          <a href="#" className="mx-3 text-sm text-gray-400 hover:text-red-600">Terms</a>
-          <a href="#" className="mx-3 text-sm text-gray-400 hover:text-red-600">Privacy</a>
-          <a href="#" className="mx-3 text-sm text-gray-400 hover:text-red-600">Help Center</a>
-        </div>
-        <p className="text-sm text-gray-500">© 2025 MovieStream. All rights reserved.</p>
+      <footer className="bg-gray-900 border-gray-800 border-t py-6 px-4 text-center">
+        <p className="text-sm text-gray-500">© 2025 Nithyananda TV. All rights reserved.</p>
       </footer>
     </div>
   );

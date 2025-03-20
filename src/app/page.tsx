@@ -1,3 +1,5 @@
+"use client"
+
 import { useState } from 'react';
 import { Play, Info, Search, Bell, Moon, ChevronRight, Heart, Clock, Star } from 'lucide-react';
 

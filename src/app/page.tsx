@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 
 export default function NithyanandaTV() {
@@ -120,7 +122,7 @@ export default function NithyanandaTV() {
 
       {/* Filter Buttons - like Image 2 */}
       <section className="px-4 mb-6">
-        <div className="flex space-x-3 overflow-x-auto pb-2 scrollbar-thin scrollbar-thumb-orange-500 scrollbar-track-transparent">
+        <div className="flex space-x-3 overflow-x-auto pb-2 custom-scrollbar">
           {['New Releases', 'Top Trending', 'Your Favorites'].map((filter, index) => (
             <div key={index} className={`px-6 py-2 rounded-full cursor-pointer ${index === 0 ? 'bg-orange-500 text-white' : 'bg-gray-200 text-[#1a234d]'} whitespace-nowrap`}>
               {filter}
@@ -131,7 +133,7 @@ export default function NithyanandaTV() {
 
       {/* Topics - Scrollable Row */}
       <section className="px-4 mb-8">
-        <div className="flex space-x-4 overflow-x-auto pb-2 scrollbar-thin scrollbar-thumb-orange-500 scrollbar-track-transparent">
+        <div className="flex space-x-4 overflow-x-auto pb-2 custom-scrollbar">
           {['Discourses', 'Satsangs', 'Meditations', 'Yoga', 'Devotion', 'Mantras', 'Healing', 'Events'].map((topic, index) => (
             <div key={index} className={`px-4 py-2 rounded-full ${index === 0 ? 'text-orange-500 font-bold text-lg' : 'text-[#1a234d]'} whitespace-nowrap cursor-pointer`}>
               {topic}
@@ -238,7 +240,7 @@ export default function NithyanandaTV() {
               </svg>
             </a>
           </div>
-          <div className="flex space-x-4 overflow-x-auto pb-4 scrollbar-thin scrollbar-thumb-orange-500 scrollbar-track-transparent">
+          <div className="flex space-x-4 overflow-x-auto pb-4 custom-scrollbar">
             {[1, 2, 3, 4, 5, 6, 7, 8].map((item) => (
               <div key={item} className="min-w-[140px] rounded-lg overflow-hidden bg-gray-100 shadow-md hover:shadow-lg transition-transform hover:-translate-y-1 cursor-pointer flex-shrink-0">
                 <div className="relative">
@@ -264,7 +266,7 @@ export default function NithyanandaTV() {
               </svg>
             </a>
           </div>
-          <div className="flex space-x-4 overflow-x-auto pb-4 scrollbar-thin scrollbar-thumb-orange-500 scrollbar-track-transparent">
+          <div className="flex space-x-4 overflow-x-auto pb-4 custom-scrollbar">
             {[1, 2, 3, 4, 5, 6, 7, 8].map((item) => (
               <div key={item} className="min-w-[140px] rounded-lg overflow-hidden bg-gray-100 shadow-md hover:shadow-lg transition-transform hover:-translate-y-1 cursor-pointer flex-shrink-0">
                 <div className="relative">
@@ -290,7 +292,7 @@ export default function NithyanandaTV() {
               </svg>
             </a>
           </div>
-          <div className="flex space-x-4 overflow-x-auto pb-4 scrollbar-thin scrollbar-thumb-orange-500 scrollbar-track-transparent">
+          <div className="flex space-x-4 overflow-x-auto pb-4 custom-scrollbar">
             {[1, 2, 3, 4, 5, 6, 7, 8].map((item) => (
               <div key={item} className="min-w-[140px] rounded-lg overflow-hidden bg-gray-100 shadow-md hover:shadow-lg transition-transform hover:-translate-y-1 cursor-pointer flex-shrink-0">
                 <div className="relative">
@@ -310,26 +312,6 @@ export default function NithyanandaTV() {
       <footer className="bg-white border-gray-200 border-t py-6 px-4 text-center">
         <p className="text-sm text-gray-500">© 2025 Nithyananda TV. All rights reserved.</p>
       </footer>
-
-      {/* CSS for custom scrollbar */}
-      <style jsx global>{`
-        /* Custom scrollbar for webkit browsers */
-        .scrollbar-thin::-webkit-scrollbar {
-          height: 4px;
-          width: 4px;
-        }
-        .scrollbar-thin::-webkit-scrollbar-track {
-          background: transparent;
-        }
-        .scrollbar-thin::-webkit-scrollbar-thumb {
-          background: #ff6b00;
-          border-radius: 4px;
-        }
-        .scrollbar-thin {
-          scrollbar-width: thin;
-          scrollbar-color: #ff6b00 transparent;
-        }
-      `}</style>
     </div>
   );
 }

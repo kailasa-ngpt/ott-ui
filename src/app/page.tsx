@@ -2,9 +2,9 @@ import Image from "next/image";
 
 export default function NithyanandaTV() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-800 text-white">
+    <div className="min-h-screen bg-white text-[#1a234d]">
       {/* Header */}
-      <header className="sticky top-0 z-50 bg-gray-900/95 backdrop-blur-md shadow-md px-4 py-3 flex items-center justify-between">
+      <header className="sticky top-0 z-50 bg-white shadow-md px-4 py-3 flex items-center justify-between">
         <div className="flex items-center text-xl font-bold">
           <span className="text-orange-500 mr-2">
             <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -15,6 +15,7 @@ export default function NithyanandaTV() {
           Nithyananda TV
         </div>
         
+        {/* Desktop search */}
         <div className="hidden md:flex relative flex-1 max-w-md mx-4">
           <div className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">
             <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -25,12 +26,19 @@ export default function NithyanandaTV() {
           <input 
             type="text" 
             placeholder="Search for discourses, meditations, etc." 
-            className="w-full py-2 pl-10 pr-4 rounded-full bg-gray-800 border-gray-700 border"
+            className="w-full py-2 pl-10 pr-4 rounded-full bg-gray-100 border-gray-200 border text-[#1a234d]"
           />
         </div>
         
         <div className="flex items-center space-x-4">
-          <button className="p-2 rounded-full bg-gray-800">
+          {/* Mobile search button */}
+          <button className="md:hidden p-2 rounded-full bg-gray-100">
+            <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+          </button>
+          <button className="p-2 rounded-full bg-gray-100">
             <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
             </svg>
@@ -94,42 +102,53 @@ export default function NithyanandaTV() {
         </div>
       </section>
 
-      {/* Filter Buttons */}
-      <section className="px-4 mb-8">
-        <div className="flex space-x-3 overflow-x-auto pb-2">
-          <button className="px-6 py-2 bg-orange-500 text-white rounded-full whitespace-nowrap">New Releases</button>
-          <button className="px-6 py-2 bg-gray-800 hover:bg-gray-700 text-white rounded-full whitespace-nowrap">Top Trending</button>
-          <button className="px-6 py-2 bg-gray-800 hover:bg-gray-700 text-white rounded-full whitespace-nowrap">Your Favorites</button>
-        </div>
-      </section>
-
-      {/* Topics */}
-      <section className="px-4 mb-8">
-        <div className="flex space-x-4 overflow-x-auto pb-2">
-          {['Discourses', 'Satsangs', 'Meditations', 'Yoga', 'Devotion', 'Mantras', 'Healing', 'Events'].map((topic, index) => (
-            <div key={index} className={`px-4 py-2 rounded-full ${index === 0 ? 'bg-orange-500 text-white' : 'bg-gray-800 hover:bg-gray-700 text-white'} whitespace-nowrap cursor-pointer`}>
-              {topic}
+      {/* Section Selectors - Like Image 1 */}
+      <section className="px-4 mb-6">
+        <div className="flex justify-between items-center border-b border-gray-200 relative">
+          {['Trends Now', 'Popular', 'Premieres', 'Recently Added'].map((section, index) => (
+            <div key={index} className="relative pb-2 px-2">
+              <div className={`whitespace-nowrap ${index === 0 ? 'font-bold text-lg' : 'text-base text-gray-500'} cursor-pointer`}>
+                {section}
+              </div>
+              {index === 0 && (
+                <div className="absolute bottom-0 left-0 right-0 h-1 bg-orange-500 rounded-t-full"></div>
+              )}
             </div>
           ))}
         </div>
       </section>
 
-      {/* Vertical Rectangle OTT Suggestions - 2 Rows */}
-      <section className="px-4 mb-8">
-        <div className="flex justify-between items-center mb-4">
-          <h2 className="text-lg md:text-xl font-bold">Featured Content</h2>
-          <a href="#" className="text-orange-500 text-sm flex items-center">
-            See all 
-            <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <polyline points="9 18 15 12 9 6"></polyline>
-            </svg>
-          </a>
+      {/* Filter Buttons - like Image 2 */}
+      <section className="px-4 mb-6">
+        <div className="flex space-x-3 overflow-x-auto pb-2 scrollbar-thin scrollbar-thumb-orange-500 scrollbar-track-transparent">
+          {['New Releases', 'Top Trending', 'Your Favorites'].map((filter, index) => (
+            <div key={index} className={`px-6 py-2 rounded-full cursor-pointer ${index === 0 ? 'bg-orange-500 text-white' : 'bg-gray-200 text-[#1a234d]'} whitespace-nowrap`}>
+              {filter}
+            </div>
+          ))}
         </div>
-        
+      </section>
+
+      {/* Topics - Scrollable Row */}
+      <section className="px-4 mb-8">
+        <div className="flex space-x-4 overflow-x-auto pb-2 scrollbar-thin scrollbar-thumb-orange-500 scrollbar-track-transparent">
+          {['Discourses', 'Satsangs', 'Meditations', 'Yoga', 'Devotion', 'Mantras', 'Healing', 'Events'].map((topic, index) => (
+            <div key={index} className={`px-4 py-2 rounded-full ${index === 0 ? 'text-orange-500 font-bold text-lg' : 'text-[#1a234d]'} whitespace-nowrap cursor-pointer`}>
+              {topic}
+              {index === 0 && (
+                <div className="h-1 bg-orange-500 rounded-full mt-1 mx-auto w-1/2"></div>
+              )}
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Content Grid - No Headers */}
+      <section className="px-4 mb-8">
         {/* First row */}
         <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 md:gap-4 mb-4">
           {[1, 2, 3, 4, 5, 6].map((item) => (
-            <div key={item} className="rounded-lg overflow-hidden bg-gray-800 shadow-md hover:shadow-lg transition-transform hover:-translate-y-1 cursor-pointer">
+            <div key={item} className="rounded-lg overflow-hidden bg-gray-100 shadow-md hover:shadow-lg transition-transform hover:-translate-y-1 cursor-pointer">
               <div className="relative">
                 <Image src={`/api/placeholder/300/${450 + item}`} alt="Content" width={300} height={450 + item} className="w-full aspect-[2/3] object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center">
@@ -142,7 +161,7 @@ export default function NithyanandaTV() {
               </div>
               <div className="p-2">
                 <h3 className="font-medium text-sm truncate">Yogic Powers {item}</h3>
-                <p className="text-xs text-gray-400">Spiritual • 2023</p>
+                <p className="text-xs text-gray-500">Spiritual • 2023</p>
               </div>
             </div>
           ))}
@@ -151,7 +170,7 @@ export default function NithyanandaTV() {
         {/* Second row */}
         <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 md:gap-4">
           {[1, 2, 3, 4, 5, 6].map((item) => (
-            <div key={item} className="rounded-lg overflow-hidden bg-gray-800 shadow-md hover:shadow-lg transition-transform hover:-translate-y-1 cursor-pointer">
+            <div key={item} className="rounded-lg overflow-hidden bg-gray-100 shadow-md hover:shadow-lg transition-transform hover:-translate-y-1 cursor-pointer">
               <div className="relative">
                 <Image src={`/api/placeholder/300/${450 + item * 2}`} alt="Content" width={300} height={450 + item * 2} className="w-full aspect-[2/3] object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center">
@@ -164,7 +183,7 @@ export default function NithyanandaTV() {
               </div>
               <div className="p-2">
                 <h3 className="font-medium text-sm truncate">Kundalini Yoga {item}</h3>
-                <p className="text-xs text-gray-400">Session {item} • {item * 10}m</p>
+                <p className="text-xs text-gray-500">Session {item} • {item * 10}m</p>
               </div>
             </div>
           ))}
@@ -186,7 +205,7 @@ export default function NithyanandaTV() {
         {/* Grid of horizontal cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {[1, 2, 3, 4, 5, 6].map((item) => (
-            <div key={item} className="rounded-lg overflow-hidden bg-gray-800 shadow-md hover:shadow-lg transition-transform hover:-translate-y-1 cursor-pointer">
+            <div key={item} className="rounded-lg overflow-hidden bg-gray-100 shadow-md hover:shadow-lg transition-transform hover:-translate-y-1 cursor-pointer">
               <div className="relative">
                 <Image src={`/api/placeholder/${400 + item}/${225 + item}`} alt="Live Stream" width={400 + item} height={225 + item} className="w-full aspect-video object-cover" />
                 <div className="absolute top-2 left-2 bg-red-600 text-white text-xs px-2 py-1 rounded-full flex items-center">
@@ -199,14 +218,14 @@ export default function NithyanandaTV() {
               </div>
               <div className="p-3">
                 <h3 className="font-medium">Morning Discourse {item}</h3>
-                <p className="text-xs text-gray-400 mt-1">with Swamiji • Started {item} hour{item !== 1 ? 's' : ''} ago</p>
+                <p className="text-xs text-gray-500 mt-1">with Swamiji • Started {item} hour{item !== 1 ? 's' : ''} ago</p>
               </div>
             </div>
           ))}
         </div>
       </section>
 
-      {/* Playlists - Scrollable Rows */}
+      {/* Playlists - Scrollable Rows with Peek */}
       <section className="px-4 mb-8">
         {/* First Playlist */}
         <div className="mb-6">
@@ -219,15 +238,15 @@ export default function NithyanandaTV() {
               </svg>
             </a>
           </div>
-          <div className="flex space-x-4 overflow-x-auto pb-4">
+          <div className="flex space-x-4 overflow-x-auto pb-4 scrollbar-thin scrollbar-thumb-orange-500 scrollbar-track-transparent">
             {[1, 2, 3, 4, 5, 6, 7, 8].map((item) => (
-              <div key={item} className="min-w-[180px] rounded-lg overflow-hidden bg-gray-800 shadow-md hover:shadow-lg transition-transform hover:-translate-y-1 cursor-pointer flex-shrink-0">
+              <div key={item} className="min-w-[140px] rounded-lg overflow-hidden bg-gray-100 shadow-md hover:shadow-lg transition-transform hover:-translate-y-1 cursor-pointer flex-shrink-0">
                 <div className="relative">
                   <Image src={`/api/placeholder/180/${250 + item}`} alt="Playlist Item" width={180} height={250 + item} className="w-full aspect-[2/3] object-cover" />
                 </div>
                 <div className="p-2">
                   <h3 className="font-medium text-sm truncate">Meditation {item}</h3>
-                  <p className="text-xs text-gray-400">{item * 5 + 10} min</p>
+                  <p className="text-xs text-gray-500">{item * 5 + 10} min</p>
                 </div>
               </div>
             ))}
@@ -245,15 +264,15 @@ export default function NithyanandaTV() {
               </svg>
             </a>
           </div>
-          <div className="flex space-x-4 overflow-x-auto pb-4">
+          <div className="flex space-x-4 overflow-x-auto pb-4 scrollbar-thin scrollbar-thumb-orange-500 scrollbar-track-transparent">
             {[1, 2, 3, 4, 5, 6, 7, 8].map((item) => (
-              <div key={item} className="min-w-[180px] rounded-lg overflow-hidden bg-gray-800 shadow-md hover:shadow-lg transition-transform hover:-translate-y-1 cursor-pointer flex-shrink-0">
+              <div key={item} className="min-w-[140px] rounded-lg overflow-hidden bg-gray-100 shadow-md hover:shadow-lg transition-transform hover:-translate-y-1 cursor-pointer flex-shrink-0">
                 <div className="relative">
                   <Image src={`/api/placeholder/180/${250 + item * 2}`} alt="Playlist Item" width={180} height={250 + item * 2} className="w-full aspect-[2/3] object-cover" />
                 </div>
                 <div className="p-2">
                   <h3 className="font-medium text-sm truncate">Teaching {item}</h3>
-                  <p className="text-xs text-gray-400">{item * 10 + 15} min</p>
+                  <p className="text-xs text-gray-500">{item * 10 + 15} min</p>
                 </div>
               </div>
             ))}
@@ -271,15 +290,15 @@ export default function NithyanandaTV() {
               </svg>
             </a>
           </div>
-          <div className="flex space-x-4 overflow-x-auto pb-4">
+          <div className="flex space-x-4 overflow-x-auto pb-4 scrollbar-thin scrollbar-thumb-orange-500 scrollbar-track-transparent">
             {[1, 2, 3, 4, 5, 6, 7, 8].map((item) => (
-              <div key={item} className="min-w-[180px] rounded-lg overflow-hidden bg-gray-800 shadow-md hover:shadow-lg transition-transform hover:-translate-y-1 cursor-pointer flex-shrink-0">
+              <div key={item} className="min-w-[140px] rounded-lg overflow-hidden bg-gray-100 shadow-md hover:shadow-lg transition-transform hover:-translate-y-1 cursor-pointer flex-shrink-0">
                 <div className="relative">
                   <Image src={`/api/placeholder/180/${250 + item * 3}`} alt="Playlist Item" width={180} height={250 + item * 3} className="w-full aspect-[2/3] object-cover" />
                 </div>
                 <div className="p-2">
                   <h3 className="font-medium text-sm truncate">Yoga Series {item}</h3>
-                  <p className="text-xs text-gray-400">{item} episodes</p>
+                  <p className="text-xs text-gray-500">{item} episodes</p>
                 </div>
               </div>
             ))}
@@ -288,9 +307,29 @@ export default function NithyanandaTV() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 border-gray-800 border-t py-6 px-4 text-center">
+      <footer className="bg-white border-gray-200 border-t py-6 px-4 text-center">
         <p className="text-sm text-gray-500">© 2025 Nithyananda TV. All rights reserved.</p>
       </footer>
+
+      {/* CSS for custom scrollbar */}
+      <style jsx global>{`
+        /* Custom scrollbar for webkit browsers */
+        .scrollbar-thin::-webkit-scrollbar {
+          height: 4px;
+          width: 4px;
+        }
+        .scrollbar-thin::-webkit-scrollbar-track {
+          background: transparent;
+        }
+        .scrollbar-thin::-webkit-scrollbar-thumb {
+          background: #ff6b00;
+          border-radius: 4px;
+        }
+        .scrollbar-thin {
+          scrollbar-width: thin;
+          scrollbar-color: #ff6b00 transparent;
+        }
+      `}</style>
     </div>
   );
 }

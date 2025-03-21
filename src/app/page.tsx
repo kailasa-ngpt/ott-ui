@@ -6,7 +6,7 @@ export default function NithyanandaTV() {
   return (
     <div className="min-h-screen bg-white text-[#1a234d]">
       {/* Header */}
-      <header className="sticky top-0 z-50 bg-white shadow-md px-4 py-3 flex items-center justify-between">
+      <header className="sticky top-0 z-50 bg-white shadow-md px-4 md:px-8 py-3 flex items-center justify-between">
         <div className="flex items-center text-xl font-bold">
           <span className="text-orange-500 mr-2">
             <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -57,12 +57,12 @@ export default function NithyanandaTV() {
         </div>
       </header>
 
-      {/* Hero Section - Slider */}
-      <section className="mb-8 relative h-96">
+      {/* Hero Section - Slider - 60% screen height on desktop */}
+      <section className="mb-8 relative h-96 md:h-[60vh]">
         <div className="relative w-full h-full">
           <Image src="/api/placeholder/1200/500" alt="Featured Content" width={1200} height={500} className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
-          <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+          <div className="absolute bottom-0 left-0 right-0 p-6 md:p-12 text-white">
             <h2 className="text-3xl font-bold mb-2">Manifesting Powers</h2>
             <p className="text-sm md:text-base mb-3 max-w-2xl">Explore ancient yogic techniques and spiritual practices to awaken the divine powers (shaktis) within you through Paramashiva&apos;s sacred knowledge.</p>
             <div className="flex space-x-3">
@@ -104,128 +104,93 @@ export default function NithyanandaTV() {
         </div>
       </section>
 
-      {/* Filter Row - First Row */}
-      <section className="px-4 mb-6">
-        <div className="flex space-x-6 pb-2 overflow-x-auto custom-scrollbar">
-          {['New Releases', 'Top Trending', 'Your Favorites'].map((filter, index) => (
-            <div key={index} className="relative">
-              <div className="text-[#1a234d] font-medium text-lg cursor-pointer whitespace-nowrap">
-                {filter}
+      {/* Main Content Container - Center on desktop */}
+      <div className="md:max-w-screen-xl md:mx-auto">
+        {/* Filter Row - First Row - Center aligned on desktop */}
+        <section className="px-4 mb-6">
+          <div className="flex md:justify-center space-x-6 pb-2 overflow-x-auto custom-scrollbar">
+            {['New Releases', 'Top Trending', 'Your Favorites'].map((filter, index) => (
+              <div key={index} className="relative">
+                <div className="text-[#1a234d] font-medium text-lg cursor-pointer whitespace-nowrap">
+                  {filter}
+                </div>
+                {index === 0 && (
+                  <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-2 h-2 rounded-full bg-orange-500"></div>
+                )}
               </div>
-              {index === 0 && (
-                <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-2 h-2 rounded-full bg-orange-500"></div>
-              )}
-            </div>
-          ))}
-        </div>
-      </section>
+            ))}
+          </div>
+        </section>
 
-      {/* Topics - Second Row */}
-      <section className="px-4 mb-8">
-        <div className="flex space-x-4 overflow-x-auto pb-2 custom-scrollbar">
-          {['Discourses', 'Satsangs', 'Meditations', 'Yoga', 'Devotion', 'Mantras', 'Healing', 'Events'].map((topic, index) => (
-            <div 
-              key={index} 
-              className={`px-4 py-2 rounded-full cursor-pointer ${
-                index === 0 
-                  ? 'bg-orange-500 text-white' 
-                  : 'bg-white text-orange-500 border border-orange-500'
-              } whitespace-nowrap`}
-            >
-              {topic}
-            </div>
-          ))}
-        </div>
-      </section>
+        {/* Topics - Second Row - Center aligned on desktop */}
+        <section className="px-4 mb-8">
+          <div className="flex md:justify-center space-x-4 overflow-x-auto pb-2 custom-scrollbar">
+            {['Discourses', 'Satsangs', 'Meditations', 'Yoga', 'Devotion', 'Mantras', 'Healing', 'Events'].map((topic, index) => (
+              <div 
+                key={index} 
+                className={`px-4 py-2 rounded-full cursor-pointer ${
+                  index === 0 
+                    ? 'bg-orange-500 text-white' 
+                    : 'bg-white text-orange-500 border border-orange-500'
+                } whitespace-nowrap`}
+              >
+                {topic}
+              </div>
+            ))}
+          </div>
+        </section>
 
-      {/* Content Grid - No Headers */}
-      <section className="px-4 mb-8">
-        {/* First row */}
-        <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 md:gap-4 mb-4">
-          {[1, 2, 3, 4, 5, 6].map((item) => (
-            <div key={item} className="rounded-lg overflow-hidden bg-gray-100 shadow-md hover:shadow-lg transition-transform hover:-translate-y-1 cursor-pointer">
-              <div className="relative">
-                <Image src={`/api/placeholder/300/${450 + item}`} alt="Content" width={300} height={450 + item} className="w-full aspect-[2/3] object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center">
-                  <button className="bg-orange-500 hover:bg-orange-600 text-white rounded-full w-10 h-10 flex items-center justify-center">
-                    <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                    </svg>
-                  </button>
+        {/* Content Grid - Fill screen width on desktop */}
+        <section className="px-4 mb-8">
+          {/* First row */}
+          <div className="grid grid-cols-3 md:grid-cols-6 gap-3 md:gap-4 mb-4">
+            {[1, 2, 3, 4, 5, 6].map((item) => (
+              <div key={item} className="rounded-lg overflow-hidden bg-gray-100 shadow-md hover:shadow-lg transition-transform hover:-translate-y-1 cursor-pointer">
+                <div className="relative">
+                  <Image src={`/api/placeholder/300/${450 + item}`} alt="Content" width={300} height={450 + item} className="w-full aspect-[2/3] object-cover" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center">
+                    <button className="bg-orange-500 hover:bg-orange-600 text-white rounded-full w-10 h-10 flex items-center justify-center">
+                      <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+                <div className="p-2">
+                  <h3 className="font-medium text-sm truncate">Yogic Powers {item}</h3>
+                  <p className="text-xs text-gray-500">Spiritual • 2023</p>
                 </div>
               </div>
-              <div className="p-2">
-                <h3 className="font-medium text-sm truncate">Yogic Powers {item}</h3>
-                <p className="text-xs text-gray-500">Spiritual • 2023</p>
-              </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
 
-        {/* Second row */}
-        <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 md:gap-4">
-          {[1, 2, 3, 4, 5, 6].map((item) => (
-            <div key={item} className="rounded-lg overflow-hidden bg-gray-100 shadow-md hover:shadow-lg transition-transform hover:-translate-y-1 cursor-pointer">
-              <div className="relative">
-                <Image src={`/api/placeholder/300/${450 + item * 2}`} alt="Content" width={300} height={450 + item * 2} className="w-full aspect-[2/3] object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center">
-                  <button className="bg-orange-500 hover:bg-orange-600 text-white rounded-full w-10 h-10 flex items-center justify-center">
-                    <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                    </svg>
-                  </button>
+          {/* Second row */}
+          <div className="grid grid-cols-3 md:grid-cols-6 gap-3 md:gap-4">
+            {[1, 2, 3, 4, 5, 6].map((item) => (
+              <div key={item} className="rounded-lg overflow-hidden bg-gray-100 shadow-md hover:shadow-lg transition-transform hover:-translate-y-1 cursor-pointer">
+                <div className="relative">
+                  <Image src={`/api/placeholder/300/${450 + item * 2}`} alt="Content" width={300} height={450 + item * 2} className="w-full aspect-[2/3] object-cover" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center">
+                    <button className="bg-orange-500 hover:bg-orange-600 text-white rounded-full w-10 h-10 flex items-center justify-center">
+                      <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+                <div className="p-2">
+                  <h3 className="font-medium text-sm truncate">Kundalini Yoga {item}</h3>
+                  <p className="text-xs text-gray-500">Session {item} • {item * 10}m</p>
                 </div>
               </div>
-              <div className="p-2">
-                <h3 className="font-medium text-sm truncate">Kundalini Yoga {item}</h3>
-                <p className="text-xs text-gray-500">Session {item} • {item * 10}m</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
+            ))}
+          </div>
+        </section>
 
-      {/* Live Streams - Horizontal Rectangles */}
-      <section className="px-4 mb-8">
-        <div className="flex justify-between items-center mb-4">
-          <h2 className="text-lg md:text-xl font-bold">Live Now</h2>
-          <a href="#" className="text-orange-500 text-sm flex items-center">
-            See all 
-            <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <polyline points="9 18 15 12 9 6"></polyline>
-            </svg>
-          </a>
-        </div>
-
-        {/* Grid of horizontal cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {[1, 2, 3, 4, 5, 6].map((item) => (
-            <div key={item} className="rounded-lg overflow-hidden bg-gray-100 shadow-md hover:shadow-lg transition-transform hover:-translate-y-1 cursor-pointer">
-              <div className="relative">
-                <Image src={`/api/placeholder/${400 + item}/${225 + item}`} alt="Live Stream" width={400 + item} height={225 + item} className="w-full aspect-video object-cover" />
-                <div className="absolute top-2 left-2 bg-red-600 text-white text-xs px-2 py-1 rounded-full flex items-center">
-                  <span className="inline-block w-2 h-2 rounded-full bg-white mr-1"></span>
-                  LIVE
-                </div>
-                <div className="absolute bottom-2 right-2 bg-black/50 text-white text-xs px-2 py-1 rounded-full">
-                  {item * 100 + 50} viewers
-                </div>
-              </div>
-              <div className="p-3">
-                <h3 className="font-medium">Morning Discourse {item}</h3>
-                <p className="text-xs text-gray-500 mt-1">with Swamiji • Started {item} hour{item !== 1 ? 's' : ''} ago</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Playlists - Scrollable Rows with Peek */}
-      <section className="px-4 mb-8">
-        {/* First Playlist */}
-        <div className="mb-6">
+        {/* Live Streams - Horizontal Rectangles (left as is) */}
+        <section className="px-4 mb-8">
           <div className="flex justify-between items-center mb-4">
-            <h2 className="text-lg md:text-xl font-bold">Meditation Techniques</h2>
+            <h2 className="text-lg md:text-xl font-bold">Live Now</h2>
             <a href="#" className="text-orange-500 text-sm flex items-center">
               See all 
               <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -233,73 +198,111 @@ export default function NithyanandaTV() {
               </svg>
             </a>
           </div>
-          <div className="flex space-x-4 overflow-x-auto pb-4 custom-scrollbar">
-            {[1, 2, 3, 4, 5, 6, 7, 8].map((item) => (
-              <div key={item} className="min-w-[140px] rounded-lg overflow-hidden bg-gray-100 shadow-md hover:shadow-lg transition-transform hover:-translate-y-1 cursor-pointer flex-shrink-0">
-                <div className="relative">
-                  <Image src={`/api/placeholder/180/${250 + item}`} alt="Playlist Item" width={180} height={250 + item} className="w-full aspect-[2/3] object-cover" />
-                </div>
-                <div className="p-2">
-                  <h3 className="font-medium text-sm truncate">Meditation {item}</h3>
-                  <p className="text-xs text-gray-500">{item * 5 + 10} min</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
 
-        {/* Second Playlist */}
-        <div className="mb-6">
-          <div className="flex justify-between items-center mb-4">
-            <h2 className="text-lg md:text-xl font-bold">Sacred Teachings</h2>
-            <a href="#" className="text-orange-500 text-sm flex items-center">
-              See all 
-              <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <polyline points="9 18 15 12 9 6"></polyline>
-              </svg>
-            </a>
-          </div>
-          <div className="flex space-x-4 overflow-x-auto pb-4 custom-scrollbar">
-            {[1, 2, 3, 4, 5, 6, 7, 8].map((item) => (
-              <div key={item} className="min-w-[140px] rounded-lg overflow-hidden bg-gray-100 shadow-md hover:shadow-lg transition-transform hover:-translate-y-1 cursor-pointer flex-shrink-0">
+          {/* Grid of horizontal cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {[1, 2, 3, 4, 5, 6].map((item) => (
+              <div key={item} className="rounded-lg overflow-hidden bg-gray-100 shadow-md hover:shadow-lg transition-transform hover:-translate-y-1 cursor-pointer">
                 <div className="relative">
-                  <Image src={`/api/placeholder/180/${250 + item * 2}`} alt="Playlist Item" width={180} height={250 + item * 2} className="w-full aspect-[2/3] object-cover" />
+                  <Image src={`/api/placeholder/${400 + item}/${225 + item}`} alt="Live Stream" width={400 + item} height={225 + item} className="w-full aspect-video object-cover" />
+                  <div className="absolute top-2 left-2 bg-red-600 text-white text-xs px-2 py-1 rounded-full flex items-center">
+                    <span className="inline-block w-2 h-2 rounded-full bg-white mr-1"></span>
+                    LIVE
+                  </div>
+                  <div className="absolute bottom-2 right-2 bg-black/50 text-white text-xs px-2 py-1 rounded-full">
+                    {item * 100 + 50} viewers
+                  </div>
                 </div>
-                <div className="p-2">
-                  <h3 className="font-medium text-sm truncate">Teaching {item}</h3>
-                  <p className="text-xs text-gray-500">{item * 10 + 15} min</p>
+                <div className="p-3">
+                  <h3 className="font-medium">Morning Discourse {item}</h3>
+                  <p className="text-xs text-gray-500 mt-1">with Swamiji • Started {item} hour{item !== 1 ? 's' : ''} ago</p>
                 </div>
               </div>
             ))}
           </div>
-        </div>
+        </section>
 
-        {/* Third Playlist */}
-        <div>
-          <div className="flex justify-between items-center mb-4">
-            <h2 className="text-lg md:text-xl font-bold">Yoga Series</h2>
-            <a href="#" className="text-orange-500 text-sm flex items-center">
-              See all 
-              <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <polyline points="9 18 15 12 9 6"></polyline>
-              </svg>
-            </a>
-          </div>
-          <div className="flex space-x-4 overflow-x-auto pb-4 custom-scrollbar">
-            {[1, 2, 3, 4, 5, 6, 7, 8].map((item) => (
-              <div key={item} className="min-w-[140px] rounded-lg overflow-hidden bg-gray-100 shadow-md hover:shadow-lg transition-transform hover:-translate-y-1 cursor-pointer flex-shrink-0">
-                <div className="relative">
-                  <Image src={`/api/placeholder/180/${250 + item * 3}`} alt="Playlist Item" width={180} height={250 + item * 3} className="w-full aspect-[2/3] object-cover" />
+        {/* Playlists - Optimized for desktop */}
+        <section className="px-4 mb-8">
+          {/* First Playlist */}
+          <div className="mb-6">
+            <div className="flex justify-between items-center mb-4">
+              <h2 className="text-lg md:text-xl font-bold">Meditation Techniques</h2>
+              <a href="#" className="text-orange-500 text-sm flex items-center">
+                See all 
+                <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+              </a>
+            </div>
+            <div className="flex space-x-4 overflow-x-auto pb-4 custom-scrollbar md:grid md:grid-cols-8 md:gap-4">
+              {[1, 2, 3, 4, 5, 6, 7, 8].map((item) => (
+                <div key={item} className="min-w-[140px] md:min-w-0 md:w-full rounded-lg overflow-hidden bg-gray-100 shadow-md hover:shadow-lg transition-transform hover:-translate-y-1 cursor-pointer flex-shrink-0">
+                  <div className="relative">
+                    <Image src={`/api/placeholder/180/${250 + item}`} alt="Playlist Item" width={180} height={250 + item} className="w-full aspect-[2/3] object-cover" />
+                  </div>
+                  <div className="p-2">
+                    <h3 className="font-medium text-sm truncate">Meditation {item}</h3>
+                    <p className="text-xs text-gray-500">{item * 5 + 10} min</p>
+                  </div>
                 </div>
-                <div className="p-2">
-                  <h3 className="font-medium text-sm truncate">Yoga Series {item}</h3>
-                  <p className="text-xs text-gray-500">{item} episodes</p>
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+
+          {/* Second Playlist */}
+          <div className="mb-6">
+            <div className="flex justify-between items-center mb-4">
+              <h2 className="text-lg md:text-xl font-bold">Sacred Teachings</h2>
+              <a href="#" className="text-orange-500 text-sm flex items-center">
+                See all 
+                <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+              </a>
+            </div>
+            <div className="flex space-x-4 overflow-x-auto pb-4 custom-scrollbar md:grid md:grid-cols-8 md:gap-4">
+              {[1, 2, 3, 4, 5, 6, 7, 8].map((item) => (
+                <div key={item} className="min-w-[140px] md:min-w-0 md:w-full rounded-lg overflow-hidden bg-gray-100 shadow-md hover:shadow-lg transition-transform hover:-translate-y-1 cursor-pointer flex-shrink-0">
+                  <div className="relative">
+                    <Image src={`/api/placeholder/180/${250 + item * 2}`} alt="Playlist Item" width={180} height={250 + item * 2} className="w-full aspect-[2/3] object-cover" />
+                  </div>
+                  <div className="p-2">
+                    <h3 className="font-medium text-sm truncate">Teaching {item}</h3>
+                    <p className="text-xs text-gray-500">{item * 10 + 15} min</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Third Playlist */}
+          <div>
+            <div className="flex justify-between items-center mb-4">
+              <h2 className="text-lg md:text-xl font-bold">Yoga Series</h2>
+              <a href="#" className="text-orange-500 text-sm flex items-center">
+                See all 
+                <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+              </a>
+            </div>
+            <div className="flex space-x-4 overflow-x-auto pb-4 custom-scrollbar md:grid md:grid-cols-8 md:gap-4">
+              {[1, 2, 3, 4, 5, 6, 7, 8].map((item) => (
+                <div key={item} className="min-w-[140px] md:min-w-0 md:w-full rounded-lg overflow-hidden bg-gray-100 shadow-md hover:shadow-lg transition-transform hover:-translate-y-1 cursor-pointer flex-shrink-0">
+                  <div className="relative">
+                    <Image src={`/api/placeholder/180/${250 + item * 3}`} alt="Playlist Item" width={180} height={250 + item * 3} className="w-full aspect-[2/3] object-cover" />
+                  </div>
+                  <div className="p-2">
+                    <h3 className="font-medium text-sm truncate">Yoga Series {item}</h3>
+                    <p className="text-xs text-gray-500">{item} episodes</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      </div>
 
       {/* Footer */}
       <footer className="bg-white border-gray-200 border-t py-6 px-4 text-center">

@@ -104,42 +104,35 @@ export default function NithyanandaTV() {
         </div>
       </section>
 
-      {/* Section Selectors - Like Image 1 */}
+      {/* Filter Row - First Row */}
       <section className="px-4 mb-6">
-        <div className="flex justify-between items-center border-b border-gray-200 relative">
-          {['Trends Now', 'Popular', 'Premieres', 'Recently Added'].map((section, index) => (
-            <div key={index} className="relative pb-2 px-2">
-              <div className={`whitespace-nowrap ${index === 0 ? 'font-bold text-lg' : 'text-base text-gray-500'} cursor-pointer`}>
-                {section}
+        <div className="flex space-x-6 pb-2 overflow-x-auto custom-scrollbar">
+          {['New Releases', 'Top Trending', 'Your Favorites'].map((filter, index) => (
+            <div key={index} className="relative">
+              <div className="text-[#1a234d] font-medium text-lg cursor-pointer whitespace-nowrap">
+                {filter}
               </div>
               {index === 0 && (
-                <div className="absolute bottom-0 left-0 right-0 h-1 bg-orange-500 rounded-t-full"></div>
+                <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-2 h-2 rounded-full bg-orange-500"></div>
               )}
             </div>
           ))}
         </div>
       </section>
 
-      {/* Filter Buttons - like Image 2 */}
-      <section className="px-4 mb-6">
-        <div className="flex space-x-3 overflow-x-auto pb-2 custom-scrollbar">
-          {['New Releases', 'Top Trending', 'Your Favorites'].map((filter, index) => (
-            <div key={index} className={`px-6 py-2 rounded-full cursor-pointer ${index === 0 ? 'bg-orange-500 text-white' : 'bg-gray-200 text-[#1a234d]'} whitespace-nowrap`}>
-              {filter}
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Topics - Scrollable Row */}
+      {/* Topics - Second Row */}
       <section className="px-4 mb-8">
         <div className="flex space-x-4 overflow-x-auto pb-2 custom-scrollbar">
           {['Discourses', 'Satsangs', 'Meditations', 'Yoga', 'Devotion', 'Mantras', 'Healing', 'Events'].map((topic, index) => (
-            <div key={index} className={`px-4 py-2 rounded-full ${index === 0 ? 'text-orange-500 font-bold text-lg' : 'text-[#1a234d]'} whitespace-nowrap cursor-pointer`}>
+            <div 
+              key={index} 
+              className={`px-4 py-2 rounded-full cursor-pointer ${
+                index === 0 
+                  ? 'bg-orange-500 text-white' 
+                  : 'bg-white text-orange-500 border border-orange-500'
+              } whitespace-nowrap`}
+            >
               {topic}
-              {index === 0 && (
-                <div className="h-1 bg-orange-500 rounded-full mt-1 mx-auto w-1/2"></div>
-              )}
             </div>
           ))}
         </div>
